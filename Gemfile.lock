@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/omniauth/omniauth-github.git
-  revision: d001ed274276bf50e1e756bf38bce75509aa25ec
-  branch: master
-  specs:
-    omniauth-github (1.4.0)
-      omniauth (~> 1.5)
-      omniauth-oauth2 (>= 1.4.0, < 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -191,7 +182,6 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-facebook
-  omniauth-github!
   pry
   rails (~> 5.0)
   sass-rails (~> 5.0)
