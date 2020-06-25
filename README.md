@@ -7,12 +7,11 @@
 
 There are no tests for this lesson, but code along as we learn about OmniAuth and build out a login strategy together!
 
-***NOTE***: If you run into trouble with Facebook, use the usual avenues for assistance (Google, StackOverflow, AAQ, Slack, and so on), but don't bash your head against the wall too much. Facebook is the choice for this lesson because it is ubiquitous as an OAuth provider, but feel free to pick a different provider (GitHub, for instance). A bit of struggle in the setup process is healthy — that's a learning opportunity. However, the ultimate point of this lesson is to learn how to use OmniAuth; not to waste six hours fighting with the Facebook developer interface.
-
+***NOTE***: If you run into trouble with Facebook, use the usual avenues for assistance (Google, StackOverflow, AAQ, Slack, and so on), but don't bash your head against the wall too much. Facebook is the choice for this lesson because it is ubiquitous as an OAuth provider, but feel free to pick a different provider (GitHub, for instance). A bit of struggle in the setup process is healthy — that's a learning opportunity.
 ## Overview
 Passwords are terrible.
 
-For one thing, you have to remember them. Or you have to use a password manager, which comes with its own problems. Unsurprisingly, some percentage of users will just leave and never come back the moment you ask them to create an account.
+For one thing, you have to remember them. Or you have to use a password manager, which comes with its own problems.
 
 And then on the server, you have to manage all these passwords. You have to store them securely. Rails secures your passwords when they are stored in your database, but it does not secure your servers, which see the password in plain text. If I can get into your servers, I can edit your Rails code and have it send all your users' passwords to me as they submit them. You'll also have to handle password changes, email verification, and password recovery. Inevitably, your users accounts will get broken into. This may or may not be your fault, but, when they write to you, it will be your problem.
 
@@ -160,7 +159,7 @@ Right away, we see our Facebook application key, `api_key=247632982388118`, and 
 
   + `scope=email` — This tells Facebook that we want to receive the user's registered email address in the login response. We didn't have to configure anything (`scope=email` is the default), but if you want to request other specific pieces of user data check out [the `omniauth-facebook` documentation](https://github.com/mkdynamic/omniauth-facebook#configuring).
   + `client_id=247632982388118` — There's our application key again, this time provided to the success callback.
-  
+
 And one for failure:
   + `cancel_url=https://localhost:3000/auth/facebook/callback` — If login fails, we'll also be redirected to our server's OmniAuth callback route. However, this time there are some nested encoded parameters that provide information about the failure:
     * `error=access_denied`
